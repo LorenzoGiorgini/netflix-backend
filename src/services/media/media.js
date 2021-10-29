@@ -23,7 +23,9 @@ const cloudinaryStorage = new CloudinaryStorage({
 
 const fetchedData = async (query) => { 
     const response = await fetch(process.env.API_KEY + query);
+
     const data = await response.json();
+    
     if(data.Search) return data
 };
 
@@ -110,7 +112,7 @@ mediaRouter.put("/:mediaId", async(req, res, next) => {
 
 mediaRouter.put("/:mediaId/poster", multer({storage: cloudinaryStorage}).single("Poster") , async(req, res, next) => {
 
-    console.log(req.file)
+    
     const media = await readMedia()
 
     const indexMedia = media.findIndex((m) => m.imdbID === req.params.mediaId);
