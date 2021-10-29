@@ -22,7 +22,7 @@ const cloudinaryStorage = new CloudinaryStorage({
 
 
 const fetchedData = async (query) => { 
-    const response = await fetch("http://www.omdbapi.com/?apikey=e59f0763&s=" + query);
+    const response = await fetch(process.env.API_KEY + query);
     const data = await response.json();
     if(data.Search)return data.Search
 };
