@@ -2,6 +2,7 @@ import uniqid from "uniqid"
 import express from "express" 
 import { readMedia , writeMedia } from "../../lib/fs-tools.js"
 import multer from "multer"
+import fetch from 'node-fetch'
 
 //cloudinary
 import { CloudinaryStorage } from "multer-storage-cloudinary"
@@ -19,11 +20,38 @@ const cloudinaryStorage = new CloudinaryStorage({
 })
 
 
+
+const fetchedData = async (query) => { 
+    const response = await fetch("http://www.omdbapi.com/?apikey=e59f0763&s=" + query);
+    const data = await response.json();
+    if(data.Search)return data.Search
+};
+
+
 mediaRouter.get("/" , async(req, res, next) => {
     try {
-        const media = await readMedia()
+        
+        if(!req.query) {
+            const media = await readMedia()
 
-        res.status(200).send(media)
+            res.status(200).send(media)
+        } else {
+           
+            const media = await readMedia()
+
+            const filteredMedia = media.filter((m) => m.Title.includes(req.query.title))
+
+            
+
+            if(filteredMedia.length === 0) {
+                const data = await fetchedData(req.query.title)
+                
+                res.status(200).send(data)
+                return
+            }
+
+            res.status(200).send(filteredMedia)
+        }
     } catch (error) {
         next(error)
     }

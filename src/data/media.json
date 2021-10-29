@@ -1,1 +1,18 @@
-[{"Title":"The Lord of the Rings: The Fellowship of the adadasdad","Year":"202020","imdbID":"tt0120734","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg","updatedAt":"2021-10-29T09:34:33.459Z"}]
+[
+  {
+    "Title": "The Lord of the Rings: The Fellowship of the adadasdad",
+    "Year": "202020",
+    "imdbID": "tt0120734",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
+    "updatedAt": "2021-10-29T09:34:33.459Z"
+  },
+  {
+    "Title": "eminem",
+    "Year": "202020",
+    "imdbID": "tt0120733",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
+    "updatedAt": "2021-10-29T09:34:33.459Z"
+  }
+]
