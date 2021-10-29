@@ -48,7 +48,8 @@ mediaRouter.get("/" , async(req, res, next) => {
 
                 const media = await readMedia()
 
-                media.push(data.Search)
+
+                media.push(...data.Search)
 
                 await writeMedia(media)
                 
