@@ -15,7 +15,7 @@ const mediaRouter = express.Router()
 const cloudinaryStorage = new CloudinaryStorage({
 	cloudinary,
 	params: {
-		folder: "Product-Folder"
+		folder: "MoviesPosters"
 	}
 })
 
@@ -24,7 +24,7 @@ const cloudinaryStorage = new CloudinaryStorage({
 const fetchedData = async (query) => { 
     const response = await fetch(process.env.API_KEY + query);
     const data = await response.json();
-    if(data.Search)return data.Search
+    if(data.Search) return data
 };
 
 
@@ -36,7 +36,7 @@ mediaRouter.get("/" , async(req, res, next) => {
 
             res.status(200).send(media)
         } else {
-           
+
             const media = await readMedia()
 
             const filteredMedia = media.filter((m) => m.Title.includes(req.query.title))

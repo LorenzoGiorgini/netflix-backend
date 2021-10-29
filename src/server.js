@@ -33,5 +33,6 @@ server.use("/reviews" , reviewsRouter)
 const port = process.env.PORT
 
 console.table(listEndpoints(server));
+console.log(port)
 
 server.listen(port)
